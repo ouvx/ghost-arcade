@@ -1,0 +1,1427 @@
+{
+  "version": "1.9.3",
+  "exportedAt": "2026-11-11T11:58:47.075Z",
+  "project": {
+    "id": "fixture-hydra",
+    "name": "Hydra fixture",
+    "width": 1920,
+    "height": 1080,
+    "selectedLayerId": null,
+    "layers": [
+      {
+        "id": "layer-hydra",
+        "name": "Hydra",
+        "type": "media",
+        "visible": true,
+        "locked": false,
+        "opacity": 1,
+        "blendMode": "normal",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "corners": {
+          "topLeft": {
+            "x": 0,
+            "y": 1
+          },
+          "topRight": {
+            "x": 1,
+            "y": 1
+          },
+          "bottomLeft": {
+            "x": 0,
+            "y": 0
+          },
+          "bottomRight": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        "warpMode": "corners",
+        "meshGrid": null,
+        "mask": null,
+        "cropRegion": null,
+        "layerShape": {
+          "type": "rectangle",
+          "enabled": true,
+          "params": {
+            "feather": 0,
+            "rotation": 0
+          }
+        },
+        "effects": [],
+        "edgeEffects": null,
+        "parentGroupId": null,
+        "source": {
+          "id": "plugin-hydra-layer-hydra",
+          "type": "effect",
+          "name": "Hydra",
+          "src": "plugin://hydra",
+          "effectSource": {
+            "effectType": "hydra",
+            "hydraSketchName": "Tunnel",
+            "hydraSketchCode": "osc(40, 0.1, 2).kaleid(() => 3 + Math.floor(a.fft[1]*5)).color(1, 0.42, 0.42).modulate(noise(2, 0.5)).out()",
+            "hydraSensitivity": 2.25,
+            "hydraBgAlpha": 0.8
+          }
+        }
+      },
+      {
+        "id": "layer-shader",
+        "name": "Grid",
+        "type": "media",
+        "visible": true,
+        "locked": false,
+        "opacity": 1,
+        "blendMode": "normal",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "rotation": 0,
+        "flipH": false,
+        "flipV": false,
+        "corners": {
+          "topLeft": {
+            "x": 0,
+            "y": 1
+          },
+          "topRight": {
+            "x": 1,
+            "y": 1
+          },
+          "bottomLeft": {
+            "x": 0,
+            "y": 0
+          },
+          "bottomRight": {
+            "x": 1,
+            "y": 0
+          }
+        },
+        "warpMode": "corners",
+        "meshGrid": null,
+        "mask": null,
+        "cropRegion": null,
+        "layerShape": {
+          "type": "rectangle",
+          "enabled": true,
+          "params": {
+            "feather": 0,
+            "rotation": 0
+          }
+        },
+        "effects": [],
+        "edgeEffects": null,
+        "parentGroupId": null,
+        "source": {
+          "id": "src-shader",
+          "type": "shader",
+          "src": "builtin:grid",
+          "name": "Grid",
+          "shaderValues": {
+            "gridSize": 12
+          }
+        }
+      }
+    ],
+    "mappingComposition": {
+      "enabled": false,
+      "effects": [],
+      "stageEffects": [],
+      "activeStageEffectId": null,
+      "stageEffectAutomation": {
+        "playing": false,
+        "mode": "time",
+        "seconds": 4,
+        "beats": 4
+      }
+    },
+    "vjMode": null,
+    "mediaFolders": [],
+    "stagePresets": [],
+    "svKeyboardPresets": [],
+    "surfaces": [],
+    "activeSurfaceId": null,
+    "outputSlices": [],
+    "outputMasterCanvasWidth": 1920,
+    "outputMasterCanvasHeight": 1080,
+    "outputMasterWarp": {
+      "enabled": false,
+      "mode": "corners"
+    },
+    "outputSettings": {
+      "domeEnabled": false,
+      "domeMode": "angular",
+      "domeFOV": 180,
+      "domeRotation": 0,
+      "domeTilt": 0,
+      "domeOffsetX": 0,
+      "domeOffsetY": 0,
+      "domeCurvature": 1,
+      "domeTruncation": 1,
+      "outputRotation": 0,
+      "outputCropX": 0,
+      "outputCropY": 0,
+      "outputCropWidth": 1,
+      "outputCropHeight": 1,
+      "edgeBlendLeft": 0,
+      "edgeBlendRight": 0,
+      "edgeBlendTop": 0,
+      "edgeBlendBottom": 0,
+      "edgeBlendGamma": 2.2,
+      "brightness": 1,
+      "contrast": 1,
+      "gamma": 1
+    },
+    "showTimeline": {
+      "version": 1,
+      "isOpen": false,
+      "loop": false,
+      "endAction": "hold",
+      "zoom": 12,
+      "snapEnabled": true,
+      "audioTracks": [],
+      "presetClips": []
+    },
+    "showControl": {
+      "version": 1,
+      "cues": {
+        "version": 1,
+        "cues": [],
+        "markers": []
+      },
+      "timecode": {
+        "version": 1,
+        "source": "off",
+        "rate": "auto",
+        "offset": 0,
+        "freewheelSeconds": 2,
+        "chaseTimeline": true,
+        "chaseCues": true,
+        "ltcDeviceId": "",
+        "ltcChannel": 0,
+        "mtcInputId": ""
+      },
+      "schedule": {
+        "enabled": false,
+        "entries": [],
+        "exceptions": [],
+        "startCueId": null,
+        "stopCueId": null,
+        "projectorsOn": false,
+        "projectorLeadMinutes": 0,
+        "projectorsOff": false,
+        "shutter": false,
+        "blackoutOnStop": true,
+        "openOutputs": true
+      },
+      "projectors": {
+        "version": 2,
+        "projectors": [],
+        "pollSeconds": 30
+      }
+    },
+    "projectionSim": {
+      "id": "psim-default-cube-pyramid",
+      "name": "Isometric Cube Pyramid",
+      "schemaVersion": 1,
+      "environment": {
+        "background": "#040507",
+        "ambient": 0.18,
+        "roomExposure": 1,
+        "surfaceStyle": "light-gray",
+        "floorColor": "#111318",
+        "showGrid": true,
+        "shadows": true,
+        "shadowStrength": 1
+      },
+      "camera": {
+        "position": [
+          5.6,
+          4.1,
+          6.6
+        ],
+        "target": [
+          0,
+          1.55,
+          -0.75
+        ],
+        "fov": 48
+      },
+      "objects": [
+        {
+          "id": "psobj-default-cube-1",
+          "name": "Pyramid cube 1",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            0.105,
+            0.6,
+            -1.005
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#d9ddd8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-2",
+          "name": "Pyramid cube 2",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            0.25,
+            0.6,
+            -2.35
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#cbd1d4",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-3",
+          "name": "Pyramid cube 3",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            0.854,
+            0.6,
+            -1.683
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#bcc4c8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-4",
+          "name": "Pyramid cube 4",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            1.539,
+            0.6,
+            -0.94
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#d9ddd8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-5",
+          "name": "Pyramid cube 5",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            -0.566,
+            0.6,
+            -1.747
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#cbd1d4",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-6",
+          "name": "Pyramid cube 6",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            -1.308,
+            0.6,
+            -1.076
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#bcc4c8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-7",
+          "name": "Pyramid cube 7",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            0.854,
+            1.6,
+            -1.683
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#d9ddd8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-8",
+          "name": "Pyramid cube 8",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            0.258,
+            1.61,
+            -2.357
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#cbd1d4",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-9",
+          "name": "Pyramid cube 9",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            -0.559,
+            1.6,
+            -1.753
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#bcc4c8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        },
+        {
+          "id": "psobj-default-cube-10",
+          "name": "Pyramid cube 10",
+          "type": "primitive",
+          "primitive": "box",
+          "position": [
+            0.25,
+            2.61,
+            -2.35
+          ],
+          "rotation": [
+            0,
+            0.735,
+            0
+          ],
+          "scale": [
+            1.01,
+            1.01,
+            1.01
+          ],
+          "color": "#d9ddd8",
+          "roughness": 0.82,
+          "visible": true,
+          "locked": false,
+          "castShadow": true,
+          "receiveProjection": true
+        }
+      ],
+      "projectors": [
+        {
+          "id": "psproj-default-center",
+          "name": "Center Projector",
+          "enabled": true,
+          "locked": false,
+          "position": [
+            0,
+            3.8,
+            7.2
+          ],
+          "target": [
+            0,
+            1.55,
+            -0.75
+          ],
+          "fov": 34,
+          "aspect": 1.7777777777777777,
+          "intensity": 3.2,
+          "opacity": 1,
+          "color": "#ffffff",
+          "source": "master",
+          "sliceId": null,
+          "crop": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "edgeBlend": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "showFrustum": true
+        }
+      ]
+    }
+  },
+  "mediaLibrary": [],
+  "vjClipLauncher": {
+    "numLayers": 4,
+    "numColumns": 8,
+    "blocks": [
+      {
+        "id": "675dcc5a-bb74-4e0f-a0fb-1ea35e40a8b7",
+        "name": "Block 1",
+        "clipGrid": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "bankBClipGrid": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    ],
+    "activeBlockId": "675dcc5a-bb74-4e0f-a0fb-1ea35e40a8b7",
+    "layerStates": [
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      },
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      },
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      },
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      }
+    ],
+    "bankBLayerStates": [
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      },
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      },
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      },
+      {
+        "opacity": 1,
+        "blendMode": "normal",
+        "solo": false,
+        "mute": false,
+        "autopilotPaused": false,
+        "activeColumn": null,
+        "activeClip": null,
+        "effects": []
+      }
+    ],
+    "groups": [],
+    "crossfaderEnabled": false,
+    "crossfaderValue": 0,
+    "crossfaderTransition": "dissolve",
+    "crossfaderCurve": "constant-power",
+    "crossfaderBlendMode": "normal",
+    "crossfaderFadeDuration": 0,
+    "selectedDeck": "A",
+    "quantization": "off",
+    "masterOpacity": 1,
+    "isOpen": false,
+    "isLive": false,
+    "compositionEffects": [],
+    "stageMode": false,
+    "stagePresetId": null
+  },
+  "modulation": [],
+  "keyframeTimelines": [],
+  "macros": {
+    "macros": [
+      {
+        "id": "macro-1",
+        "name": "ENERGY",
+        "color": "#FF8577",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-2",
+        "name": "CHAOS",
+        "color": "#7EC8E3",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-3",
+        "name": "DRAMA",
+        "color": "#BB86FC",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-4",
+        "name": "BUILD",
+        "color": "#22c55e",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-5",
+        "name": "SUB",
+        "color": "#f97316",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-6",
+        "name": "AIR",
+        "color": "#3b82f6",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-7",
+        "name": "FX",
+        "color": "#ec4899",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      },
+      {
+        "id": "macro-8",
+        "name": "WILD",
+        "color": "#eab308",
+        "value": 0,
+        "effects": [],
+        "assignments": [],
+        "pulseMode": "off",
+        "pulseShape": "sine"
+      }
+    ]
+  },
+  "dmxInput": {
+    "universes": [],
+    "mergeMode": "htp",
+    "timeoutMs": 2500,
+    "bindings": []
+  },
+  "osc": {
+    "enabled": false,
+    "port": 8000,
+    "bindings": [],
+    "outputEnabled": false,
+    "outputHost": "127.0.0.1",
+    "outputPort": 9000
+  },
+  "keyboard": {
+    "enabled": false,
+    "bindings": []
+  },
+  "mediaPipe": [],
+  "snapshots": {
+    "snapshots": []
+  },
+  "synthVision": {
+    "layers": {
+      "a": {
+        "sh": 0,
+        "style": 0,
+        "space": 0,
+        "world": 0,
+        "blend": 0,
+        "p": {
+          "chaos": 0.3,
+          "speed": 0.5,
+          "zoom": 0.5,
+          "color": 0.5,
+          "glow": 0.4,
+          "warp": 0,
+          "mirror": 0,
+          "feedback": 0.1,
+          "lofi": 0
+        }
+      },
+      "b": {
+        "sh": 1,
+        "style": 0,
+        "space": 0,
+        "world": 1,
+        "blend": 0,
+        "p": {
+          "chaos": 0.3,
+          "speed": 0.5,
+          "zoom": 0.5,
+          "color": 0.5,
+          "glow": 0.4,
+          "warp": 0,
+          "mirror": 0,
+          "feedback": 0.1,
+          "lofi": 0
+        }
+      }
+    },
+    "xfade": 0,
+    "bpm": 120,
+    "bpmSync": false,
+    "drift": false,
+    "driftSpeed": 0.3,
+    "driftInterval": 4,
+    "autoMode": false,
+    "autoInterval": 8,
+    "rndLocks": {
+      "shader": true,
+      "style": true,
+      "world": true,
+      "params": true,
+      "space": true
+    },
+    "spaceFx": "pump",
+    "camMode": "direct",
+    "camBlend": 0,
+    "camOpacity": 0.8,
+    "shaderParams": [
+      {
+        "tunnelR": 0.5,
+        "sides": 0.5,
+        "colorShift": 0.5
+      },
+      {
+        "iters": 0.5,
+        "scale": 0.5,
+        "rotSpd": 0.5
+      },
+      {
+        "blobSize": 0.5,
+        "turb": 0.5,
+        "refl": 0.5
+      },
+      {
+        "intensity": 0.5,
+        "branches": 0.5,
+        "lspd": 0.5
+      },
+      {
+        "gridD": 0.5,
+        "glowI": 0.5,
+        "scanSpd": 0.5
+      },
+      {
+        "nodes": 0.5,
+        "conn": 0.5,
+        "pulseSpd": 0.5
+      },
+      {
+        "segs": 0.5,
+        "depth": 0.5,
+        "rotSpd": 0.5
+      },
+      {
+        "shapes": 0.5,
+        "layers": 0.5,
+        "pulseRate": 0.5
+      },
+      {
+        "freq": 0.5,
+        "amp": 0.5,
+        "layers": 0.5
+      },
+      {
+        "shells": 0.5,
+        "noise": 0.5,
+        "spin": 0.5
+      },
+      {
+        "cells": 0.5,
+        "turb": 0.5,
+        "glow": 0.5
+      },
+      {
+        "strength": 0.5,
+        "rings": 0.5,
+        "warp": 0.5
+      },
+      {
+        "count": 0.5,
+        "length": 0.5,
+        "glow": 0.5
+      },
+      {
+        "layers": 0.5,
+        "twist": 0.5,
+        "glow": 0.5
+      },
+      {
+        "count": 0.5,
+        "speed": 0.5,
+        "size": 0.5
+      },
+      {
+        "nodes": 0.5,
+        "connect": 0.5,
+        "pulse": 0.5
+      },
+      {
+        "density": 0.5,
+        "speed": 0.5,
+        "glow": 0.5
+      },
+      {
+        "freq": 0.5,
+        "amp": 0.5,
+        "layers": 0.5
+      },
+      {
+        "count": 0.5,
+        "speed": 0.5,
+        "glow": 0.5
+      },
+      {
+        "facets": 0.5,
+        "refract": 0.5,
+        "glow": 0.5
+      },
+      {
+        "cells": 0.5,
+        "flow": 0.5,
+        "color": 0.5
+      },
+      {
+        "density": 0.5,
+        "speed": 0.5,
+        "depth": 0.5
+      },
+      {
+        "shapes": 0.5,
+        "speed": 0.5,
+        "blend": 0.5
+      },
+      {
+        "cells": 0.5,
+        "pulse": 0.5,
+        "color": 0.5
+      },
+      {
+        "intensity": 0.5,
+        "speed": 0.5,
+        "blocks": 0.5
+      },
+      {
+        "facets": 0.5,
+        "refract": 0.5,
+        "rainbow": 0.5
+      },
+      {
+        "density": 0.5,
+        "turb": 0.5,
+        "color": 0.5
+      },
+      {
+        "lines": 0.5,
+        "nodes": 0.5,
+        "pulse": 0.5
+      },
+      {
+        "bands": 0.5,
+        "flow": 0.5,
+        "color": 0.5
+      },
+      {
+        "arms": 0.5,
+        "spin": 0.5,
+        "pull": 0.5
+      },
+      {
+        "scale": 0.5,
+        "glow": 0.5,
+        "pulse": 0.5
+      },
+      {
+        "intensity": 0.5,
+        "speed": 0.5,
+        "color": 0.5
+      },
+      {
+        "freq": 0.5,
+        "amp": 0.5,
+        "speed": 0.5
+      },
+      {
+        "size": 0.5,
+        "glow": 0.5,
+        "pulse": 0.5
+      },
+      {
+        "rays": 0.5,
+        "speed": 0.5,
+        "glow": 0.5
+      },
+      {
+        "shape": 0.5,
+        "size": 0.5,
+        "color": 0.5
+      }
+    ],
+    "worldParams": [
+      {
+        "count": 0.5,
+        "size": 0.4,
+        "spread": 0.5,
+        "speed": 0.5,
+        "trail": 0.3,
+        "gravity": 0.2
+      },
+      {
+        "count": 0.5,
+        "size": 0.5,
+        "spacing": 0.5,
+        "rotate": 0.5,
+        "explode": 0.3,
+        "thick": 0.45
+      },
+      {
+        "depth": 0.5,
+        "scale": 0.5,
+        "twist": 0.3,
+        "branch": 0.5,
+        "glow": 0.4,
+        "animate": 0.5
+      },
+      {
+        "height": 0.5,
+        "detail": 0.5,
+        "water": 0.3,
+        "erosion": 0.4,
+        "fog": 0.3,
+        "sun": 0.6
+      },
+      {
+        "count": 0.5,
+        "connect": 0.6,
+        "pulse": 0.5,
+        "attract": 0.4,
+        "thick": 0.3,
+        "glow": 0.5
+      },
+      {
+        "viscosity": 0.5,
+        "turbulence": 0.5,
+        "density": 0.5,
+        "color": 0.5,
+        "flow": 0.5,
+        "splash": 0.3
+      },
+      {
+        "facets": 0.5,
+        "size": 0.5,
+        "thick": 0.55,
+        "cluster": 0.4,
+        "glow": 0.5,
+        "rotate": 0.3
+      },
+      {
+        "arms": 0.5,
+        "spin": 0.5,
+        "pull": 0.5,
+        "depth": 0.5,
+        "particles": 0.4,
+        "color": 0.5
+      },
+      {
+        "density": 0.5,
+        "speed": 0.5,
+        "size": 0.4,
+        "depth": 0.6,
+        "nebula": 0.3,
+        "twinkle": 0.5
+      },
+      {
+        "cells": 0.5,
+        "pulse": 0.5,
+        "branch": 0.5,
+        "color": 0.5,
+        "flow": 0.4,
+        "mutate": 0.3
+      },
+      {
+        "ribbons": 0.5,
+        "height": 0.5,
+        "wave": 0.5,
+        "shimmer": 0.5,
+        "color": 0.4,
+        "spread": 0.5
+      },
+      {
+        "twist": 0.5,
+        "rungs": 0.5,
+        "radius": 0.5,
+        "speed": 0.5,
+        "glow": 0.4,
+        "pairs": 0.5
+      },
+      {
+        "count": 0.5,
+        "cohesion": 0.5,
+        "speed": 0.5,
+        "scatter": 0.4,
+        "trail": 0.3,
+        "color": 0.5
+      },
+      {
+        "count": 0.5,
+        "radius": 0.5,
+        "spin": 0.5,
+        "tilt": 0.4,
+        "gap": 0.5,
+        "thick": 0.5
+      }
+    ]
+  },
+  "audio": {
+    "sensitivity": 1,
+    "smoothing": 0.3,
+    "manualBPM": null,
+    "bandGain": {
+      "sub": 1,
+      "bass": 1,
+      "lowMid": 1,
+      "mid": 1,
+      "highMid": 1,
+      "treble": 1,
+      "air": 1,
+      "presence": 1
+    }
+  },
+  "layerSequencer": {
+    "pattern": {
+      "steps": [
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        },
+        {
+          "activeLayers": {}
+        }
+      ],
+      "stepCount": 16,
+      "continuousLayers": {}
+    },
+    "config": {
+      "timingMode": "fixed",
+      "bpm": 120,
+      "subdivision": 1,
+      "fixedStepDuration": 1,
+      "crossfadeEnabled": true,
+      "crossfadeDuration": 0.3,
+      "loop": true,
+      "presetMode": "custom",
+      "randomDensity": 0.3
+    },
+    "isOpen": false
+  },
+  "geoDeck": {
+    "tab": "play",
+    "form": "minimal",
+    "action": "pulse",
+    "scale": 0.55,
+    "depth": 0.62,
+    "flow": 0.48,
+    "echo": 0.34,
+    "symmetry": 0.5,
+    "contrast": 0.7,
+    "macro1": 0.5,
+    "macro2": 0.5,
+    "sceneSlots": [
+      {
+        "name": "A",
+        "form": "minimal",
+        "params": {
+          "scale": 0.52,
+          "depth": 0.58,
+          "flow": 0.42,
+          "echo": 0.4,
+          "symmetry": 0.35,
+          "contrast": 0.64
+        }
+      },
+      {
+        "name": "B",
+        "form": "grid",
+        "params": {
+          "scale": 0.66,
+          "depth": 0.78,
+          "flow": 0.54,
+          "echo": 0.22,
+          "symmetry": 0.72,
+          "contrast": 0.74
+        }
+      },
+      {
+        "name": "C",
+        "form": "sacred",
+        "params": {
+          "scale": 0.48,
+          "depth": 0.7,
+          "flow": 0.36,
+          "echo": 0.46,
+          "symmetry": 0.84,
+          "contrast": 0.68
+        }
+      },
+      {
+        "name": "D",
+        "form": "tunnel",
+        "params": {
+          "scale": 0.6,
+          "depth": 0.88,
+          "flow": 0.62,
+          "echo": 0.18,
+          "symmetry": 0.56,
+          "contrast": 0.82
+        }
+      }
+    ],
+    "activeSceneSlot": 0,
+    "morphTargetSlot": 1,
+    "morph": 0,
+    "modRoutes": [
+      {
+        "id": "r1",
+        "source": "xyX",
+        "target": "symmetry",
+        "amount": 0.45,
+        "enabled": true
+      },
+      {
+        "id": "r2",
+        "source": "xyY",
+        "target": "depth",
+        "amount": -0.35,
+        "enabled": true
+      },
+      {
+        "id": "r3",
+        "source": "lfo1",
+        "target": "flow",
+        "amount": 0.28,
+        "enabled": true
+      },
+      {
+        "id": "r4",
+        "source": "macro1",
+        "target": "contrast",
+        "amount": 0.5,
+        "enabled": true
+      },
+      {
+        "id": "r5",
+        "source": "macro2",
+        "target": "echo",
+        "amount": -0.5,
+        "enabled": false
+      },
+      {
+        "id": "r6",
+        "source": "lfo2",
+        "target": "scale",
+        "amount": 0.22,
+        "enabled": false
+      }
+    ]
+  }
+}
