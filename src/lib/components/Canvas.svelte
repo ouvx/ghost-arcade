@@ -6704,6 +6704,34 @@
           bgAlpha: effectSource.hydraBgAlpha ?? 1.0,
         });
 
+        // Only bundled sketches run. When a project held something else,
+        // HydraVisualizer substitutes a safe preset — toast once and write
+        // the substitute back so reopen does not warn again.
+        const hydraFallback = hy.consumeFallbackNotice();
+        if (hydraFallback) {
+          const label = hydraFallback.requestedName?.trim() || 'Hydra sketch';
+          showToast(
+            hydraFallback.usedDefault
+              ? `"${label}" is not a bundled Hydra preset. Loaded "${hydraFallback.safeName}" instead.`
+              : `"${label}" was updated to the bundled Hydra preset.`,
+            'warning',
+          );
+          for (const layer of groupedLayers) {
+            if (layer.source?.effectSource) {
+              project.setLayerSource(layer.id, {
+                ...layer.source,
+                effectSource: {
+                  ...layer.source.effectSource,
+                  hydraSketchName: hydraFallback.safeName,
+                  hydraSketchCode: hydraFallback.safeCode,
+                },
+              });
+            }
+          }
+          effectCtx.hydraLoadedPresetName = hydraFallback.safeName;
+          if (layerId) hydraStore.reportPreset(layerId, hydraFallback.safeName);
+        }
+
         // Edge-triggered commands from the HydraPanel
         if (layerId && _hydraPresetsMod) {
           const presets = _hydraPresetsMod.HYDRA_PRESETS;

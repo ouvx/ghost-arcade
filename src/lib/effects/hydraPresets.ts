@@ -130,3 +130,29 @@ export function pickNextHydraPreset(current: string | null): HydraPreset {
   } while (next.name === current && tries < 8);
   return next;
 }
+
+/** The sketch every new Hydra layer starts on, and the safe substitute when
+ *  a project file asks for code that is not bundled. */
+export function getDefaultHydraPreset(): HydraPreset {
+  return HYDRA_PRESETS.find(p => p.name === 'Welcome') ?? HYDRA_PRESETS[0];
+}
+
+/**
+ * The sketch to run for a layer, or null when there is nothing safe to run.
+ *
+ * Sketch code is compiled and run as JavaScript inside an app window, and a
+ * project file is where a layer's code comes from. Phase 1 has no sketch
+ * editor: every legitimate sketch is one of the presets above. So only
+ * bundled code runs. Code that is not bundled falls back to the bundled
+ * preset of the same name (a project saved before a preset was retuned),
+ * and is otherwise refused — callers then substitute the default preset.
+ */
+export function resolveBundledHydraSketch(code: string | null | undefined, name?: string | null): string | null {
+  const wanted = typeof code === 'string' ? code.trim() : '';
+  if (wanted) {
+    const exact = HYDRA_PRESETS.find(p => p.code.trim() === wanted);
+    if (exact) return exact.code;
+  }
+  const byName = name ? HYDRA_PRESETS.find(p => p.name === name) : undefined;
+  return byName ? byName.code : null;
+}
