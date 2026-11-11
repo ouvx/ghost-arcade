@@ -17,6 +17,11 @@
 import * as THREE from 'three';
 import HydraSynth from 'hydra-synth';
 import type { VisualAudioState } from '../audio/visualAudio';
+import {
+  getDefaultHydraPreset,
+  HYDRA_PRESETS,
+  resolveBundledHydraSketch,
+} from './hydraPresets';
 
 export interface HydraParams {
   sketchCode: string;        // the active sketch source
@@ -25,12 +30,25 @@ export interface HydraParams {
   bgAlpha: number;
 }
 
+/** Fired once when a project sketch was replaced with a bundled preset. */
+export interface HydraSketchFallbackNotice {
+  requestedName: string;
+  requestedCode: string;
+  safeName: string;
+  safeCode: string;
+  /** True when no bundled sketch matched name or code (used the default). */
+  usedDefault: boolean;
+}
+
+const defaultPreset = getDefaultHydraPreset();
 const DEFAULT_PARAMS: HydraParams = {
-  sketchCode: 'osc(20, 0.1, 1.4).rotate(0.1).out()',
-  sketchName: 'Welcome',
+  sketchCode: defaultPreset.code,
+  sketchName: defaultPreset.name,
   sensitivity: 1.5,
   bgAlpha: 1.0,
 };
+
+const HYDRA_PRESETS_BY_CODE = new Map(HYDRA_PRESETS.map(p => [p.code.trim(), p.name]));
 
 /** Hand-rolled stub for the `synth.a` field hydra sketches reference.
  *  We feed it from the app's existing analyzer each frame instead of
@@ -76,6 +94,7 @@ export class HydraVisualizer {
   private appliedSketch: string = '';
   private synthKeys: string[] = [];
   private synthVals: any[] = [];
+  private pendingFallbackNotice: HydraSketchFallbackNotice | null = null;
 
   constructor(width: number, height: number) {
     this.width = width;
@@ -137,6 +156,18 @@ export class HydraVisualizer {
     if (p.sketchCode !== undefined && p.sketchCode !== this.appliedSketch) {
       this.compileSketch(this.params.sketchCode);
     }
+  }
+
+  /** One-shot notice for Canvas / the UI when a sketch was substituted. */
+  consumeFallbackNotice(): HydraSketchFallbackNotice | null {
+    const notice = this.pendingFallbackNotice;
+    this.pendingFallbackNotice = null;
+    return notice;
+  }
+
+  /** The sketch name currently compiled (after any safe substitution). */
+  getActiveSketchName(): string {
+    return this.params.sketchName;
   }
 
   resize(width: number, height: number): void {
@@ -211,13 +242,43 @@ export class HydraVisualizer {
     // First clear any running outputs; bad sketches that throw shouldn't
     // leave the previous one half-broken.
     try { this.hydra.hush?.(); } catch {}
+    // Only sketches that ship with the app run. `code` comes from the
+    // project file, and this compiles it as JavaScript in an app window.
+    const requestedName = this.params.sketchName;
+    const bundled = resolveBundledHydraSketch(code, requestedName);
+    const fallback = getDefaultHydraPreset();
+    const usedDefault = bundled === null;
+    const safeCode = bundled ?? fallback.code;
+    const safeName = usedDefault
+      ? fallback.name
+      : (HYDRA_PRESETS_BY_CODE.get(safeCode.trim()) ?? requestedName);
+
+    if (safeCode.trim() !== (typeof code === 'string' ? code.trim() : '')) {
+      this.pendingFallbackNotice = {
+        requestedName,
+        requestedCode: code,
+        safeName,
+        safeCode,
+        usedDefault,
+      };
+      this.params.sketchName = safeName;
+      this.params.sketchCode = safeCode;
+      if (usedDefault) {
+        console.warn('[Hydra] sketch is not a bundled preset; loading', safeName);
+      } else {
+        console.warn('[Hydra] sketch code did not match a bundled preset; using bundled', safeName);
+      }
+    }
+
     try {
       // Build a function that takes every synth key (including `time`,
       // already provided by hydra on its synth instance) as a parameter
       // — no `with`, no global pollution. Strict mode forbids duplicate
       // parameter names, which is why we don't pass `time` separately.
-      const fn = new Function(...this.synthKeys, `"use strict";\n${code}`);
+      const fn = new Function(...this.synthKeys, `"use strict";\n${safeCode}`);
       this.compiledSketch = fn;
+      // Remember the request so setParams does not recompile every frame
+      // when the project still holds the pre-substitution code.
       this.appliedSketch = code;
       // Invoke immediately so the sketch wires up its output chain
       this.runSketch();

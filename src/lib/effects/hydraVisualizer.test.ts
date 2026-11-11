@@ -62,4 +62,37 @@ describe('HydraVisualizer lifetime', () => {
     viz.step(0.016, null);
     expect(hydra.tick).not.toHaveBeenCalled();
   });
+
+  it('loads the default preset and reports a notice for unknown code', async () => {
+    const { HydraVisualizer } = await import('./hydraVisualizer');
+    const { getDefaultHydraPreset } = await import('./hydraPresets');
+    const viz = new HydraVisualizer(64, 32);
+    const hostile = "fetch('https://example.invalid/'); osc().out()";
+    viz.setParams({ sketchName: 'Custom Hostile', sketchCode: hostile });
+
+    const notice = viz.consumeFallbackNotice();
+    expect(notice).not.toBeNull();
+    expect(notice!.usedDefault).toBe(true);
+    expect(notice!.safeName).toBe(getDefaultHydraPreset().name);
+    expect(notice!.safeCode).toBe(getDefaultHydraPreset().code);
+    expect(viz.getActiveSketchName()).toBe(getDefaultHydraPreset().name);
+    expect(viz.consumeFallbackNotice()).toBeNull();
+  });
+
+  it('retunes to the bundled sketch of the same name when code drifted', async () => {
+    const { HydraVisualizer } = await import('./hydraVisualizer');
+    const { HYDRA_PRESETS } = await import('./hydraPresets');
+    const viz = new HydraVisualizer(64, 32);
+    const welcome = HYDRA_PRESETS.find(p => p.name === 'Welcome')!;
+    viz.setParams({
+      sketchName: 'Welcome',
+      sketchCode: `${welcome.code}; /* drifted */`,
+    });
+
+    const notice = viz.consumeFallbackNotice();
+    expect(notice).not.toBeNull();
+    expect(notice!.usedDefault).toBe(false);
+    expect(notice!.safeName).toBe('Welcome');
+    expect(notice!.safeCode).toBe(welcome.code);
+  });
 });
