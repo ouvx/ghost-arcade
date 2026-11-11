@@ -1,7 +1,13 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { get } from 'svelte/store';
 import type { BezierPoint } from '../types';
 import { surfaceCanRedo, surfaceCanUndo, surfaceStore } from './surface';
+
+// Every surface edit mirrors into the project through a lazy
+// `import('./layers')`. The real module graph needs a DOM and was still
+// loading when this file finished, so Vitest reported "Cannot load … after
+// the environment was torn down". Undo history does not depend on it.
+vi.mock('./layers', () => ({ project: { update: () => {} } }));
 
 const initialPolygon: BezierPoint[] = [
   { x: 100, y: 100 },
